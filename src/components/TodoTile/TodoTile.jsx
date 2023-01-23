@@ -1,9 +1,23 @@
-import React from "react";
+import React from 'react';
+import styles from './TodoTile.module.scss';
 
-function TodoTile({desc}){
+
+function TodoTile(props){
+
+  const removeHandler = e => {
+
+    props.onClick({
+      id: props.id
+    });
+  };
+
   return(
-    <span>{desc}</span>
-  )
+    <div className={styles.tileContainer}>
+      <span>Opis: {props.desc}</span>
+      <button type="button" onClick={removeHandler}> - </button>
+    </div>
+    
+  );
 }
 
-export default TodoTile
+export default TodoTile;
